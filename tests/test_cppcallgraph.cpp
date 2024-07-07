@@ -1,4 +1,3 @@
-// sudo apt install llvm clang
 // clang++ -S -emit-llvm test_cppcallgraph.cpp -o - | opt -analyze -dot-callgraph
 // dot -Tpng -ocallgraph.png callgraph.dot
 

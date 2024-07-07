@@ -1,8 +1,3 @@
-# Python == 3.8
-# pip install -r requiremants
-# sudo apt install graphviz
-# python test_pycallgraphviz.py
-
 from pycallgraph import PyCallGraph
 from pycallgraph.output import GraphvizOutput
 

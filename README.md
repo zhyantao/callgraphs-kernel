@@ -16,6 +16,8 @@ sudo apt install $PYTHON_VERSION
 $PYTHON_VERSION -m venv $PYTHON_VERSION --without-pip
 source $PYTHON_VERSION/bin/activate
 curl https://bootstrap.pypa.io/get-pip.py | $PYTHON_VERSION
+pip install -r requirements.txt
+python tests/test_pycallgraphviz.py
 
 # 安装编译环境
 sudo apt remove llvm* clang* libclang*
