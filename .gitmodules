@@ -1,0 +1,3 @@
+[submodule "third_party/CallGraph"]
+	path = third_party/CallGraph
+	url = https://github.com/bernardnongpoh/CallGraph.git
