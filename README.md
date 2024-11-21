@@ -2,7 +2,7 @@
 
 目标：B/S 架构、无需安装、运行在浏览器上。
 
-开发语言：JavaScript, React.js, IndexedDB, PlantUML
+开发语言：TypeScript, IndexedDB (localStorage), Excalidraw
 
 TODO:
 
