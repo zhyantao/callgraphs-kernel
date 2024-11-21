@@ -2,7 +2,7 @@
 
 目标：B/S 架构、无需安装、运行在浏览器上。
 
-开发语言：TypeScript, IndexedDB (localStorage), Excalidraw
+开发工具：TypeScript, React & Webpack, IndexedDB & localStorage, Excalidraw
 
 TODO:
 
