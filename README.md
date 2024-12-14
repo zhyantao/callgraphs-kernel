@@ -14,7 +14,7 @@ TODO:
 - [ ] 根据图形，使用 LLM 分析每个函数的作用
 - [ ] 当下次有 BUG 时，可以分析出调用链，并给出建议
 
-## Usage
+## 使用说明
 
 ```bash
 git clone --recursive https://github.com/zhyantao/code-analyzer.git
@@ -42,3 +42,23 @@ sudo apt install graphviz llvm-12* clang-12* libclang-12* cmake
 sudo ln -s /usr/bin/clang-12 /usr/bin/clang
 sudo ln -s /usr/bin/opt-12 /usr/bin/opt
 ```
+
+## 启动 Web 服务
+
+```bash
+cd myapp
+npm install
+
+# for MacOS or Linux
+DEBUG=myapp:* npm start
+
+# for Windows CMD
+set DEBUG=myapp:* & npm start
+
+# for PowerShell
+$env:DEBUG='myapp:*'; npm start
+```
+
+浏览器访问 <http://localhost:3000/>，即可看到效果。
+
+参考教程：<https://www.expressjs.com.cn/starter/basic-routing.html>
