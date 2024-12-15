@@ -62,3 +62,12 @@ $env:DEBUG='myapp:*'; npm start
 浏览器访问 <http://localhost:3000/>，即可看到效果。
 
 参考教程：<https://www.expressjs.com.cn/starter/basic-routing.html>
+
+## 部署 React 单页应用
+
+参考：https://github.com/creaper9487/react-gh-pages-zh
+
+```bash
+npx create-next-app@latest my-app --template typescript
+npm install gh-pages --save-dev
+```
