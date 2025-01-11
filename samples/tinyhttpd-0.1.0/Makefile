@@ -5,9 +5,8 @@ SITE_PACKAGES_DIR = $(shell python -c "import site; print(site.getsitepackages()
 
 TARGETS := httpd simpleclient
 
-CFLAGS += -Wall -O2 -D_GNU_SOURCE
-CFLAGS += -ggdb
-CFLAGS += -fPIC
+CFLAGS += -fdump-rtl-expand # For Egypt: https://www.gson.org/egypt/egypt.html
+CFLAGS += -g       # For Valgrind: https://valgrind.org/
 ifdef SYSROOT
 CFLAGS += --sysroot $(SYSROOT)
 endif
@@ -33,7 +32,7 @@ uninstall :
 
 .PHONY : clean
 clean :
-	rm -f *.o *~ core .depend
+	rm -f *.o *~ core .depend *.expand
 	rm -f ${TARGETS}
 
 .PHONY: patch

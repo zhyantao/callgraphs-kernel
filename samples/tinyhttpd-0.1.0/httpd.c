@@ -30,7 +30,7 @@
 
 #define SERVER_STRING "Server: jdbhttpd/0.1.0\r\n"
 
-void accept_request(int);
+void* accept_request(void*);
 void bad_request(int);
 void cat(int, FILE*);
 void cannot_execute(int);
@@ -48,7 +48,8 @@ void unimplemented(int);
  * return.  Process the request appropriately.
  * Parameters: the socket connected to the client */
 /**********************************************************************/
-void accept_request(int client) {
+void* accept_request(void* arg) {
+    int client = (int)(intptr_t)arg;
     char buf[1024];
     int numchars;
     char method[255];
@@ -72,7 +73,7 @@ void accept_request(int client) {
 
     if (strcasecmp(method, "GET") && strcasecmp(method, "POST")) {
         unimplemented(client);
-        return;
+        return NULL;
     }
 
     if (strcasecmp(method, "POST") == 0)
@@ -118,6 +119,7 @@ void accept_request(int client) {
     }
 
     close(client);
+    return NULL;
 }
 
 /**********************************************************************/
@@ -462,9 +464,22 @@ int main(void) {
         client_sock = accept(server_sock, (struct sockaddr*)&client_name, &client_name_len);
         if (client_sock == -1)
             error_die("accept");
-        /* accept_request(client_sock); */
-        if (pthread_create(&newthread, NULL, accept_request, client_sock) != 0)
+
+        int* client_sock_ptr = malloc(sizeof(int));
+        if (client_sock_ptr == NULL) {
+            perror("malloc");
+            close(client_sock);
+            continue;
+        }
+        *client_sock_ptr = client_sock;
+
+        if (pthread_create(&newthread, NULL, accept_request, client_sock_ptr) != 0) {
             perror("pthread_create");
+            free(client_sock_ptr);
+            close(client_sock);
+        } else {
+            pthread_detach(newthread); // 分离线程，避免资源泄漏
+        }
     }
 
     close(server_sock);
