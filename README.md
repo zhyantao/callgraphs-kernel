@@ -1,8 +1,15 @@
-# CPP Code Analyzer
+# C++ Code Analyzer
 
-目标：B/S 架构、无需安装、运行在浏览器上。
+目标: B/S 架构、无需安装、运行在浏览器上。
 
-开发工具：TypeScript, React & Webpack, IndexedDB & localStorage, Excalidraw
+开发工具:
+[TypeScript](https://www.tslang.cn/docs/home.html),
+[React](https://github.com/creaper9487/react-gh-pages-zh),
+[Express](https://www.expressjs.com.cn/starter/basic-routing.html),
+[IndexedDB](https://www.ruanyifeng.com/blog/2018/07/indexeddb.html),
+[localStorage](https://zh.javascript.info/localstorage),
+[d3](https://d3js.org),
+[perf](https://www.brendangregg.com/perf.html)
 
 TODO:
 
@@ -61,11 +68,7 @@ $env:DEBUG='myapp:*'; npm start
 
 浏览器访问 <http://localhost:3000/>，即可看到效果。
 
-参考教程：<https://www.expressjs.com.cn/starter/basic-routing.html>
-
 ## 部署 React 单页应用
-
-参考：https://github.com/creaper9487/react-gh-pages-zh
 
 ```bash
 npx create-next-app@latest my-app --template typescript
