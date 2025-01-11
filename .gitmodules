@@ -3,4 +3,4 @@
 	url = https://github.com/bernardnongpoh/CallGraph.git
 [submodule "callgraphs-generator"]
 	path = callgraphs-generator
-	url = git@github.com:zhyantao/callgraphs-generator.git
+	url = https://github.com/zhyantao/callgraphs-generator.git
